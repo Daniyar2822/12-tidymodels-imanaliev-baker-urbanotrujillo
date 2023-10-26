@@ -105,7 +105,7 @@ library(dplyr)
 library(ggplot2)
 ```
 
-Load the dataset and view the first rows. In this case we will use the dataset "blabla" which blabla.
+Load the dataset and view the first rows. In this case we will use the dataset "blabla" which blabla 123
 ```{r}
 data(mtcars)
 head(mtcars)
