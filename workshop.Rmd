@@ -154,6 +154,11 @@ Check summary statistics for nycvehiclethefts:
 ```{r}
 summary(nycvehiclethefts)
 ```
+```{r}
+ggplot(nycvehiclethefts, aes(x = borough, y = vehicle.theft)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Vehicle Thefts by Borough")
+```
 
 Create a linear regression model
 ```{r}
