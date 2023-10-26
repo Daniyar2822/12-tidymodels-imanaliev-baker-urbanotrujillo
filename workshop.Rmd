@@ -101,20 +101,67 @@ Now we are going to do a practical exercise to show how to use the tidymodels pa
 Define the libraries to use: (PLEASE ADD ALL OF THEM HERE!)
 ```{r, include = T}
 library(tidymodels)
+library(tidyverse)
 library(dplyr)
 library(ggplot2)
+library(crimedata)
+library(tidyr)
+library(glmnet)
+library(caret)
+library(ROCR)
+library(caretEnsemble)
+
+```
+#Building Inferential Model
+
+In this workshop, we will explore the "nycvehiclethefts" dataset from the "crimedata" package and build an inferential model to predict vehicle thefts in New York City. We will use various techniques, including data visualization, data preprocessing, and modeling with logistic regression.
+
+#Data Overview
+
+The "nycvehiclethefts" dataset contains information about vehicle thefts in New York City, including variables such as:
+
+date_single: date (and, in most cases, time) half-way between the first and last possible dates at which the offense could have occurred
+
+date_start: first possible date (and, in most cases, time) at which the offense could have occurred
+
+date_send: last possible date (and, in most cases, time) at which the offense could have occurred
+
+longitude: approximate longitude
+
+latitude: approximate latitude
+
+location_type: type of location*
+
+location_category:category of location type*
+
+fips_state: two-digit FIPS state code (possibly with leading zero)
+
+fips_county: three-digit FIPS county code (possibly with leading zero)
+
+tract: six-digit code for 2016 census tract
+
+block_group: one-digit code for 2016 census block group
+
+block: four-digit code for 2016 census block
+
+Load the dataset and view the first rows. 
+```{r}
+data("nycvehiclethefts")
+head(nycvehiclethefts)
 ```
 
-Load the dataset and view the first rows. In this case we will use the dataset "blabla" which blabla 123
-```{r}
-data(mtcars)
-head(mtcars)
-```
+<<<<<<< HEAD
+Load the dataset and view the first rows. In this case we will use the dataset "blabla" which blabla 
 
-Check summary statistics for mpg and horsepower
+Check summary statistics for nycvehiclethefts:
+
 ```{r}
-summary(mtcars$mpg)
-summary(mtcars$hp)
+summary(nycvehiclethefts)
+```
+```{r}
+ggplot(nycvehiclethefts, aes(x = borough, y = vehicle.theft)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Vehicle Thefts by Borough")
 ```
 
 Create a linear regression model
